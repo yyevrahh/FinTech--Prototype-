@@ -2,9 +2,15 @@ import requests
 
 def convert_currency(amount, from_currency, to_currency):
     """
-
     Convert an amount from one currency to another using an online API (exchangerate-api.com).
-    
+
+    PARAMS:
+    - amount: The amount to convert.
+    - from_currency: The currency to convert from (e.g., 'USD', 'EUR').
+    - to_currency: The currency to convert to (e.g., 'PHP', 'JPY').
+
+    RETURNS:
+    - The converted amount in the target currency, or None if an error occurs.
     """
 
     # API endpoint for exchange rates

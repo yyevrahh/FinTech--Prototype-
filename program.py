@@ -2,6 +2,7 @@
 import os
 from operations.crypto_current import get_crypto_current
 from operations.forex_convert import convert_currency
+from operations.stocks_check import get_stock
 import time as t
 
 # Keeps the program running
@@ -18,7 +19,8 @@ while True:
     print("\nChoose an operation:")
     print("\t\033[93m[1]\033[0m Get current cryptocurrency price")
     print("\t\033[93m[2]\033[0m Convert amount from Forex currency rates")
-    print("\t\033[93m[3]\033[0m Exit")
+    print("\t\033[93m[3]\033[0m Check stock (past 5 days)")
+    print("\t\033[93m[4]\033[0m Exit")
     choice = input("Enter your choice: ")
 
     #Conditional for choice 1 (Get current cryptocurrency price)
@@ -109,11 +111,18 @@ while True:
                 print("Conversion failed. Please try again later.")
         
 
+    # Conditional for choice 3 (Check stock past 5 days)
     elif choice == '3':
+        print("\n\033[91mStock Checker (past 5 days)\033[0m")
+        ticker = input("Enter the \033[92mstock ticker symbol\033[0m (e.g., 'AAPL', 'GOOGL'): ")
+        stock_price = get_stock(ticker)
+
+    
+    elif choice == '4':
         print("\nExiting the program. Goodbye!")
         break
 
     else:
             print("Invalid choice. Please select a valid cryptocurrency.")
     
-        
+    input("\nPress \033[97mENTER\033[0m key to \033[96mcontinue\033[0m...")
