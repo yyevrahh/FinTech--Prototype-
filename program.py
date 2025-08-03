@@ -12,13 +12,14 @@ while True:
     Input will be processed correspondent to what operation incorporates their choice.
 
     """
+    # Clear console after session
+    os.system('cls' if os.name == 'nt' else 'clear')
     t.sleep(.5)
     print("\nChoose an operation:")
     print("\t\033[93m[1]\033[0m Get current cryptocurrency price")
     print("\t\033[93m[2]\033[0m Convert amount from Forex currency rates")
     print("\t\033[93m[3]\033[0m Exit")
     choice = input("Enter your choice: ")
-    os.system('cls' if os.name == 'nt' else 'clear')
 
     #Conditional for choice 1 (Get current cryptocurrency price)
     if choice == '1':
