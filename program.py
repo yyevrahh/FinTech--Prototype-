@@ -1,4 +1,5 @@
 # This section imports the different files required to run the whole program.
+import os
 from operations.crypto_current import get_crypto_current
 from operations.forex_convert import convert_currency
 import time as t
@@ -17,6 +18,7 @@ while True:
     print("\t\033[93m[2]\033[0m Convert amount from Forex currency rates")
     print("\t\033[93m[3]\033[0m Exit")
     choice = input("Enter your choice: ")
+    os.system('cls' if os.name == 'nt' else 'clear')
 
     #Conditional for choice 1 (Get current cryptocurrency price)
     if choice == '1':
