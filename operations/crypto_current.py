@@ -2,9 +2,11 @@ import cryptocompare as crypto_c
 
 def get_crypto_current(crypto_symbol):
     """
+
     Fetch the current price of a cryptocurrency from:
     param: crypto_symbol: The symbol of the cryptocurrency (e.g., 'BTC', 'ETH').
-    return: The current price of the cryptocurrency.
+    return: The current price of the cryptocurrency in PHP and USD.
+
     """
     try:
         # Fetch Philippine pesos price from given cryptocurrency symbol
