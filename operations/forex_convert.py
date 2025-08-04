@@ -31,7 +31,6 @@ def convert_currency(amount, from_currency, to_currency):
         else:
             print(f"Error: {to_currency} is not a valid currency.")
             return None
-        
     
     except Exception as e:
         print(f"Error fetching exchange rates: {e}")

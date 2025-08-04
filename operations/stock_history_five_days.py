@@ -11,6 +11,7 @@ def get_stock(ticker):
         stock = yf.Ticker(ticker)
         data = stock.history(period='5d')
         records = data.reset_index().to_dict('records')
+
         if not data.empty:
             for record in records:
                 print(
@@ -22,9 +23,11 @@ def get_stock(ticker):
                     f"\033[1;35mVolume: {int(record['Volume'])}\033[0m | "
                     f"\033[1;36mDividends: {record['Dividends']}\033[0m"
                 )
+
         else:
             print(f"No data found for ticker: {ticker}")
             return None
+        
     except Exception as e:
         print(f"Error fetching data for {ticker}: {e}")
         return None

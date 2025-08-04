@@ -2,16 +2,16 @@
 import os
 from operations.crypto_current import get_crypto_current
 from operations.forex_convert import convert_currency
-from operations.stocks_check import get_stock
+from operations.stock_history_five_days import get_stock
+from operations.graph_stock_history import get_stock_history
 import time as t
 
 # Keeps the program running
 while True:
     """
-
+    This is where the main function is designed to run the FinTech operations program.
     The user will select between four (4) different FinTech operations.
     Input will be processed correspondent to what operation incorporates their choice.
-
     """
     # Clear console after session
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -20,7 +20,8 @@ while True:
     print("\t\033[93m[1]\033[0m Get current cryptocurrency price")
     print("\t\033[93m[2]\033[0m Convert amount from Forex currency rates")
     print("\t\033[93m[3]\033[0m Check stock (past 5 days)")
-    print("\t\033[93m[4]\033[0m Exit")
+    print("\t\033[93m[4]\033[0m Graph stock history (last 30 days)")
+    print("\t\033[93m[5]\033[0m Exit")
     choice = input("Enter your choice: ")
 
     #Conditional for choice 1 (Get current cryptocurrency price)
@@ -41,6 +42,7 @@ while True:
             '3': 'DOGE',
             '4': 'XRP'
         }
+
         # Check if the user's choice is valid
         if crypto_choice in crypto_symbols:
             # Get the current price of the selected cryptocurrency
@@ -57,6 +59,7 @@ while True:
             else:
                 print("Failed to retrieve prices.")
                 print("Please try again later.")
+
 
     # Conditional for choice 2 (Convert amount from Forex currency rates)
     elif choice == '2':
@@ -119,6 +122,12 @@ while True:
 
     
     elif choice == '4':
+        print("\n\033[91mGraph Stock History (last 30 days)\033[0m")
+        ticker = input("Enter the \033[92mstock ticker symbol\033[0m (e.g., 'AAPL', 'GOOGL'): ")
+        get_stock_history(ticker)
+
+
+    elif choice == '5':
         print("\nExiting the program. Goodbye!")
         break
 

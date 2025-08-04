@@ -18,6 +18,7 @@ def get_crypto_current(crypto_symbol):
             'PHP': pesos_price[crypto_symbol]['PHP'],
             'USD': usd_price[crypto_symbol]['USD']
         }
+    
     except Exception as e:
         print(f"Error fetching data for {crypto_symbol}: {e}")
         return None
